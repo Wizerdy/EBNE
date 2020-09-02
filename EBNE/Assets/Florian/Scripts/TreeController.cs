@@ -14,7 +14,6 @@ public class TreeController : MonoBehaviour
 
     void Start()
     {
-        _oc = FindObjectOfType<ObstacleController>().fallingSpeed;
         StartCoroutine(CheckSpeedValues());
         StartCoroutine(DesactivateTheTree());
     }
@@ -27,6 +26,7 @@ public class TreeController : MonoBehaviour
     IEnumerator CheckSpeedValues()
     {
         yield return new WaitForSeconds(3.5f);
+        _oc = FindObjectOfType<ObstacleController>().fallingSpeed;
         if (treeSpeed != _oc) Debug.LogError("The fall value (" + _oc + ")" +
              " isn't equal to the treeSpeed (" + treeSpeed + "). Set the fall value to " + treeSpeed + " or the tree speed to " + _oc + ".");
     }

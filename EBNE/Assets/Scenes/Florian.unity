@@ -324,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430136879}
   - component: {fileID: 430136880}
+  - component: {fileID: 430136881}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -363,6 +364,24 @@ MonoBehaviour:
   - {fileID: 6240937618139950277, guid: ddaa26400419b481eb8d31a9ba58c670, type: 3}
   objToGen: 5
   endPlatform: []
+--- !u!114 &430136881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430136878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404ef945ceea24a368c55c23c84e9050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 1604245458}
+  - {fileID: 1466308631}
+  - {fileID: 1117396092}
+  timeBtwObstacles: 3
+  branche: {fileID: 2038000686022428210, guid: 6c343db1015674029bf540b85f2a6e2e, type: 3}
 --- !u!1 &707614940
 GameObject:
   m_ObjectHideFlags: 0
