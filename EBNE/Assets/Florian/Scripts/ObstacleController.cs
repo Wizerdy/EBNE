@@ -3,6 +3,7 @@
 public class ObstacleController : MonoBehaviour
 {
 
+    [Tooltip("Vitesse de tombé de l'obstacle (le joueur n'avance pas, ce sont les obstacles qui bougent)")]
     public float fallingSpeed;
 
     void Start()

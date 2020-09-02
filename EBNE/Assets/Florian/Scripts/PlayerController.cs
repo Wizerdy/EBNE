@@ -3,12 +3,15 @@
 public class PlayerController : MonoBehaviour
 {
     private int side;
+    [Tooltip("La rapidité du joueur entre les changements de voie")]
     public float sideMoveSpeed;
 
     private bool canChangeSide;
     private bool boolSide;
 
+    [Tooltip("La distance parcouru lorsque le joueur swipe left")]
     public Vector2 movingLeft;
+    [Tooltip("La distance parcouru lorsque le joueur swipe right")]
     public Vector2 movingRight;
     private Vector2 startPos;
     private Vector2 endPos;
@@ -114,7 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Close"))
         {
-            Debug.Log("close");
+            //Debug.Log("close");
             closeAnim.SetTrigger("close");
             _closeEnemy.boolMT();
         }

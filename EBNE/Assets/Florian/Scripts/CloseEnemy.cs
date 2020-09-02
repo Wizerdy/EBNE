@@ -10,9 +10,11 @@ public class CloseEnemy : MonoBehaviour
     private bool timer;
 
     public float moveSpeed;
+    [Tooltip("Temps avant que le joueur reprenne de l'avance sur le feu lorsqu'il à tribuché juste avant")]
     public float timeBfrReset;
     private float saveTBR;
 
+    [Tooltip("La position du feu lorsque le joueur aura tribuché")]
     public Vector2 endPos;
     private Vector2 originPos;
 

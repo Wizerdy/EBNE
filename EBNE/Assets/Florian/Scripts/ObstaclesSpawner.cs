@@ -5,15 +5,22 @@ using UnityEngine;
 public class ObstaclesSpawner : MonoBehaviour
 {
 
+    [Tooltip("Un spawn point par voie à placer au dessus de l'écran")]
     public Transform[] spawnPoints;
-    private float timeBtwObstacles;
+
+    [Tooltip("Temps entre l'instantiation d'obstacle (+ du random pour pas que ce soit un temps fixe) - par défaut toutes les 3 secondes")]
+    public float timeBtwObstacles;
     public GameObject branche;
 
     List<int> list = new List<int>();
 
     void Start()
     {
-        timeBtwObstacles = 3;
+        if(timeBtwObstacles == 0)
+        {
+            timeBtwObstacles = 3;
+        }
+        
         StartCoroutine(InstantiateObstacle());
     }
 
@@ -40,7 +47,7 @@ public class ObstaclesSpawner : MonoBehaviour
                 }
 
                 list[j] = Rand;
-                Debug.Log(list[j]);
+                //Debug.Log(list[j]);
                 Instantiate(branche, spawnPoints[j - 1]);
             }
            
