@@ -68,7 +68,7 @@ public class TreeGenerator : MonoBehaviour
         }
         else
         {
-            Debug.Log("no more tree to instantiate");
+            //Debug.Log("no more tree to instantiate");
         }
     }
 }

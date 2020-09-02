@@ -8,6 +8,10 @@ TagManager:
   - Close
   - endPlatform
   - Gland
+  - LeftPart
+  - MidPart
+  - RightPart
+  - FallDetection
   layers:
   - Default
   - TransparentFX

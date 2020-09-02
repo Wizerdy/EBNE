@@ -28,7 +28,7 @@ public class CloseEnemy : MonoBehaviour
     {
         if(timeBfrReset != saveTBR)
         {
-            Debug.Log("lost");
+            //Debug.Log("lost");
         }
 
         canMT = true;

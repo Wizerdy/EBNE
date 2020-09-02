@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
         "Vous pouvez regarder dans la console le time scale il est dispo.")]
     public float timeMultiplicator;
 
+    [Tooltip("Coché la case si vous voulez activer les valeurs de la time scale dans la console")]
+    public bool activeTimeScaleValue;
+
     void Start()
     {
         Time.timeScale = 1;
@@ -23,6 +26,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Time.timeScale *= timeMultiplicator;
-        Debug.Log(Time.timeScale);
+        if (activeTimeScaleValue)
+        {
+            Debug.Log(Time.timeScale);
+        }
     }
 }
