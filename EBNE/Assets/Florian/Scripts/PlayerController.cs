@@ -2,7 +2,8 @@
 
 public class PlayerController : MonoBehaviour
 {
-    private int side;
+    public int side;
+    private bool key;
     [Tooltip("La rapidité du joueur entre les changements de voie")]
     public float sideMoveSpeed;
 
@@ -63,8 +64,27 @@ public class PlayerController : MonoBehaviour
                     canChangeSide = true;
                 }
             }
+        }
 
-            
+        if(Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (side != 0)
+            {
+                side -= 1;
+                canChangeSide = true;
+                key = true;
+            }
+           
+        }
+
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (side != 2)
+            {
+                side += 1;
+                canChangeSide = true;
+                key = true;
+            }
         }
     }
 
@@ -74,7 +94,7 @@ public class PlayerController : MonoBehaviour
         {
             if (side == 0)
             {
-                if (endPos.x - startPos.x < 0)
+                if (endPos.x - startPos.x < 0 || key)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, movingLeft, sideMoveSpeed * Time.deltaTime);
                 }
@@ -82,6 +102,7 @@ public class PlayerController : MonoBehaviour
                 if (transform.position.x == movingLeft.x)
                 {
                     canChangeSide = false;
+                    key = false;
                 }
             }
 
@@ -93,13 +114,14 @@ public class PlayerController : MonoBehaviour
                 if (transform.position.x == 0)
                 {
                     canChangeSide = false;
+                    key = false;
                 }
 
             }
 
             if (side == 2)
             {
-                if (endPos.x - startPos.x > 0)
+                if (endPos.x - startPos.x > 0 || key)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, movingRight, sideMoveSpeed * Time.deltaTime);
                 }
@@ -107,6 +129,7 @@ public class PlayerController : MonoBehaviour
                 if (transform.position.x == movingRight.x)
                 {
                     canChangeSide = false;
+                    key = false;
                 }
             }
         }
