@@ -12,13 +12,16 @@ public class TreePartController : MonoBehaviour
     public GameObject rightTree;
 
     private GameObject endPTransform;
+    private GameObject go;
 
     public List<GameObject> endPlatform = new List<GameObject>();
 
     //public PlayerController _treeGenerator;
+    public Transform treeGenerator;
 
     public void Start()
     {
+        treeGenerator = FindObjectOfType<TreeGenerator>().transform;
         //_treeGenerator = FindObjectOfType<PlayerController>();
         //ThePart();
     }
@@ -38,7 +41,7 @@ public class TreePartController : MonoBehaviour
 
     void Left()
     {
-        Debug.Log("left");
+        //Debug.Log("left");
         endPTransform = GameObject.FindWithTag("endPlatform");
 
         var rr = Random.Range(1, 5 + 1);
@@ -49,6 +52,8 @@ public class TreePartController : MonoBehaviour
             if (i != rr - 1)
             {
                 Instantiate(centerTree, endPTransform.transform.position, Quaternion.identity);
+                //go.transform.localScale = new Vector3(1, 1, 1);
+                //go.transform.SetParent(treeGenerator);
                 endPTransform.SetActive(false);
 
                 foreach (GameObject endPlatTransform in GameObject.FindGameObjectsWithTag("endPlatform"))
@@ -61,6 +66,8 @@ public class TreePartController : MonoBehaviour
             else
             {
                 Instantiate(leftTree, endPTransform.transform.position, Quaternion.identity);
+                //go.transform.localScale = new Vector3(1, 1, 1);
+                //go.transform.SetParent(treeGenerator);
                 endPTransform.SetActive(false);
                 CallGeneration();
             }
@@ -70,7 +77,7 @@ public class TreePartController : MonoBehaviour
 
     void Right()
     {
-        Debug.Log("right");
+        //Debug.Log("right");
         endPTransform = GameObject.FindWithTag("endPlatform");
 
         var rr = Random.Range(1, 5 + 1);
@@ -81,6 +88,8 @@ public class TreePartController : MonoBehaviour
             if (i != rr - 1)
             {
                 Instantiate(centerTree, endPTransform.transform.position, Quaternion.identity);
+                //go.transform.localScale = new Vector3(1, 1, 1);
+                //go.transform.SetParent(treeGenerator);
                 endPTransform.SetActive(false);
 
                 foreach (GameObject endPlatTransform in GameObject.FindGameObjectsWithTag("endPlatform"))
@@ -93,6 +102,8 @@ public class TreePartController : MonoBehaviour
             else
             {
                 Instantiate(rightTree, endPTransform.transform.position, Quaternion.identity);
+                //go.transform.localScale = new Vector3(1, 1, 1);
+                //go.transform.SetParent(treeGenerator);
                 endPTransform.SetActive(false);
                 CallGeneration();
             }
@@ -102,7 +113,7 @@ public class TreePartController : MonoBehaviour
 
     void CallGeneration()
     {
-        Debug.Log("generate");
+//        Debug.Log("generate");
         FindObjectOfType<TreeGenerator>().Generate();
     }
 }

@@ -29,6 +29,6 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         score += increScoreTime;
-        scoreText.text = "" + score;
+        scoreText.text = "" + (int)score;
     }
 }

@@ -17,6 +17,7 @@ public class TreeGenerator : MonoBehaviour
     {
         loop = 0;
         Generate();
+        //treeHolder = FindObjectOfType<TreeController>().gameObject;
     }
 
     public void Generate()
@@ -24,18 +25,17 @@ public class TreeGenerator : MonoBehaviour
         if(objToGen >= loop)
         {
             endPTransform = GameObject.FindWithTag("endPlatform");
-            //Debug.Log(endPlatform);
 
             for (int i = 0; i <= objToGen; i++)
             {
                 loop++;
 
                 int PathNbr = Random.Range(0, 10);
-                //Debug.Log(PathNbr);
 
                 if (PathNbr == 0)//LEFT
                 {
-                    Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
+                    GameObject go = Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
+                    //go.transform.SetParent(transform.parent);
                     endPTransform.SetActive(false);
                     i = objToGen;
                     path[0].GetComponent<TreePartController>().ThePart();
@@ -43,7 +43,8 @@ public class TreeGenerator : MonoBehaviour
                 }
                 else if (PathNbr == 1)//RIGHT
                 {
-                    Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
+                    GameObject go = Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
+                    //go.transform.SetParent(transform.parent);
                     endPTransform.SetActive(false);
                     i = objToGen;
                     path[2].GetComponent<TreePartController>().ThePart();
@@ -52,7 +53,8 @@ public class TreeGenerator : MonoBehaviour
                 else if (PathNbr > 2)
                 {
                     //Debug.Log("the else");
-                    Instantiate(path[1], endPTransform.transform.position, Quaternion.identity);
+                    GameObject go = Instantiate(path[1], endPTransform.transform.position, Quaternion.identity);
+                    //go.transform.SetParent(transform.parent);
                     endPTransform.SetActive(false);
                 }
 

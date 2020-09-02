@@ -2,7 +2,7 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public int side;
+    private int side;
     private bool key;
     [Tooltip("La rapidité du joueur entre les changements de voie")]
     public float sideMoveSpeed;
@@ -20,8 +20,11 @@ public class PlayerController : MonoBehaviour
     private Animator closeAnim;
     private CloseEnemy _closeEnemy;
 
+    private ScoreManager _scoreManager;
+
     void Start()
     {
+        _scoreManager = FindObjectOfType<ScoreManager>();
         _closeEnemy = FindObjectOfType<CloseEnemy>();
         closeAnim = FindObjectOfType<Animator>();
 
@@ -143,6 +146,13 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("close");
             closeAnim.SetTrigger("close");
             _closeEnemy.boolMT();
+        }
+
+        if (collision.gameObject.CompareTag("Gland"))
+        {
+            Debug.Log("gland++");
+            _scoreManager.GotGland();
+            collision.gameObject.SetActive(false);
         }
     }
 }
