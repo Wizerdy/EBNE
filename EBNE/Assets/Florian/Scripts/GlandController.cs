@@ -24,7 +24,7 @@ public class GlandController : MonoBehaviour
 
         if(rr < probToSpawn)
         {
-            Instantiate(gland, spawnPoints[Random.Range(0, spawnPoints.Length + 1)].transform);
+            Instantiate(gland, spawnPoints[Random.Range(0, spawnPoints.Length)].transform);
         }
     }
 

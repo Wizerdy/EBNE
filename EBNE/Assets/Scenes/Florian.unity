@@ -866,7 +866,7 @@ MonoBehaviour:
   scoreText: {fileID: 216874430}
   moneyText: {fileID: 2015675489}
   glandIncreScore: 100
-  increScoreTime: 1
+  increScoreTime: 0.5
 --- !u!4 &1240719539
 Transform:
   m_ObjectHideFlags: 0
