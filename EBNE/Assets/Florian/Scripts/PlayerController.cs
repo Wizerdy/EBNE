@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             var finalDir = endPos.x - startPos.x;
             //Debug.Log(finalDir);
 
-            if (finalDir < 0)
+            if (finalDir < 0 || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if(side != 0)
                 {
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if(side != 2)
+                if(side != 2 || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     side += 1;
                     canChangeSide = true;
