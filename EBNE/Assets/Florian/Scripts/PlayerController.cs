@@ -13,8 +13,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 startPos;
     private Vector2 endPos;
 
+    private Animator closeAnim;
+    private CloseEnemy _closeEnemy;
+
     void Start()
     {
+        _closeEnemy = FindObjectOfType<CloseEnemy>();
+        closeAnim = FindObjectOfType<Animator>();
+
         side = 1;
     }
 
@@ -102,5 +108,15 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Close"))
+        {
+            Debug.Log("close");
+            closeAnim.SetTrigger("close");
+            _closeEnemy.boolMT();
+        }
     }
 }
