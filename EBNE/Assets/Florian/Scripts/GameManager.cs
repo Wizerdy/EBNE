@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+    public enum Phase { First, Second, Third };
 
     [Tooltip("Variable multiplié par la timeScale, plus elle est basse moins le temps s'accélerera vite et inversement - par défaut je l'ai mis à 1.0003." +
         "Vous pouvez regarder dans la console le time scale il est dispo.")]
@@ -11,6 +13,26 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Coché la case si vous voulez activer les valeurs de la time scale dans la console")]
     public bool activeTimeScaleValue;
+
+    public ScoreManager scoreManager;
+    public Phase phase;
+
+    [Header("Third phase")]
+    [SerializeField] private Transform thirdParent;
+    [SerializeField] private ThirdManager thirdManager;
+
+    private void Awake()
+    {
+        if (GameManager.instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     void Start()
     {
@@ -20,6 +42,9 @@ public class GameManager : MonoBehaviour
         {
             timeMultiplicator = 1.0003f;
         }
+
+        phase = Phase.First;
+        //StartThird();
     }
 
     
@@ -30,5 +55,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log(Time.timeScale);
         }
+    }
+
+    public void StartThird()
+    {
+        phase = Phase.Third;
+        thirdParent.gameObject.SetActive(true);
+        //thirdManager.launch();
     }
 }
