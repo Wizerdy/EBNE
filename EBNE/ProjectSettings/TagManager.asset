@@ -13,6 +13,7 @@ TagManager:
   - RightPart
   - FallDetection
   - Souterrain
+  - Ext
   layers:
   - Default
   - TransparentFX

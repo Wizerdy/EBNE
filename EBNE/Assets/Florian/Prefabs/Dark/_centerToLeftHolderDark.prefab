@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1.0700312, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6083221902675573759}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7161833567098719468
 SpriteRenderer:
@@ -288,8 +288,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2783354699650676650}
   - {fileID: 6083221902786769071}
+  - {fileID: 2783354699650676650}
   - {fileID: 6083221903333799477}
   - {fileID: 15154246107164917}
   - {fileID: 3192006815960482632}
@@ -311,8 +311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wichPart: 1
-  centerTree: {fileID: 8484616551658345173, guid: eb2dae98c065c4fcb9c12ec2d64b74cf, type: 3}
-  leftTree: {fileID: 9114981937171554464, guid: 811a873c87b7b4749bdd4bd3ebb23039, type: 3}
+  centerTree: {fileID: 6769820778571546953, guid: e70ef257b3b174bd1b40f64a925a77b0, type: 3}
+  leftTree: {fileID: 6083221902675573758}
   rightTree: {fileID: 6083221902675573758}
   endPlatform:
   - {fileID: 0}
@@ -395,7 +395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6083221902675573759}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6083221903333799476
 GameObject:

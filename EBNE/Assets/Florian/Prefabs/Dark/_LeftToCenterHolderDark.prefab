@@ -286,9 +286,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wichPart: 1
-  centerTree: {fileID: 8484616551658345173, guid: eb2dae98c065c4fcb9c12ec2d64b74cf, type: 3}
-  leftTree: {fileID: 7061717481445146867}
-  rightTree: {fileID: 7881262537142434642, guid: 238af09f25a3b43c2937b3e027dc566e, type: 3}
+  centerTree: {fileID: 6769820778571546953, guid: e70ef257b3b174bd1b40f64a925a77b0, type: 3}
+  leftTree: {fileID: 6083221902675573758, guid: 852bc369f507546239f455a68a36aca7, type: 3}
+  rightTree: {fileID: 6083221902675573758, guid: 852bc369f507546239f455a68a36aca7, type: 3}
   endPlatform:
   - {fileID: 0}
   treeGenerator: {fileID: 0}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
@@ -15,7 +16,7 @@ public class TreeGenerator : MonoBehaviour
     public GameObject leftSouterrain;
     public GameObject rightSouterrain;
     public GameObject rightToCenterSouterrain;
-    public GameObject leftToCenterSouterrain;
+    //public GameObject leftToCenterSouterrain;
 
     public GameObject trouExt;
     public GameObject trouInt;
@@ -41,6 +42,8 @@ public class TreeGenerator : MonoBehaviour
     [Tooltip("Alpha entre 0 et 1 du tronc extérieur quand on est dans l'intérieur du tronc")]
     [Range(0.0f, 1.0f)]
     public float alphaSouterrain;
+
+    private bool canSouterrain;
 
     private float savePart;
 
@@ -69,6 +72,7 @@ public class TreeGenerator : MonoBehaviour
             for (int i = 0; i <= objToGen; i++)
             {
                 loop++;
+                Debug.Log(loop);
 
                 int PathNbr = Random.Range(0, 100);
 
@@ -90,163 +94,205 @@ public class TreeGenerator : MonoBehaviour
                     path[2].GetComponent<TreePartController>().ThePart();
                     //Debug.Log("1");
                 }
-                else if (RightProb + LeftProb < PathNbr && PathNbr <= LeftProb + RightProb + Souterrain)//SOUTERRAIN
+                else if (RightProb + LeftProb < PathNbr && PathNbr <= LeftProb + RightProb + Souterrain /*&& !canSouterrain*/)//SOUTERRAIN
                 {
-
-                    TrouDark();
-                    
-                    endPTransform = GameObject.FindWithTag("endPlatform");
-
-                    var rr = Random.Range(lengthOfSouterrainMin, lengthOfSouterrainMax + 1);
-
-                    for (int j = 0; j < rr; j++)
+                    Debug.Log("vdfv");
+                    if (0==0)
                     {
-                        if(j != rr - 1)
+                        //canSouterrain = true;
+                        Debug.Log("generation souterrain");
+                        TrouDark();
+
+                        endPTransform = GameObject.FindWithTag("endPlatform");
+
+                        var rr = Random.Range(lengthOfSouterrainMin, lengthOfSouterrainMax + 1);
+
+                        for (int j = 0; j < rr; j++)
                         {
-                            int ProbPart = Random.Range(0, 100);
-                            Debug.Log("Prob part : " + ProbPart + " -- boucle :  " + j);
-                            if (ProbPart <= LeftSouterrainProb)
+                            if (j != rr - 1)
                             {
-                                if (savePart <= ProbPart) {
-                                    j++;
-                                    Debug.Log("part identique à la précédente");
-                                }
-                                else
+                                int ProbPart = Random.Range(0, 100);
+                               // Debug.Log("Prob part : " + ProbPart + " -- boucle :  " + j);
+                                if (ProbPart <= LeftSouterrainProb)
                                 {
-                                    if (alreadyLeft)
+                                    if (savePart <= ProbPart)
                                     {
-                                        savePart = ProbPart;
-                                        Instantiate(rightSouterrain, endPTransform.transform.position, Quaternion.identity);
-                                        GameObject go = Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
-                                        foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
-                                        {
-                                            darkPart.Add(darkParts);
-                                        }
-                                        i = objToGen;
-                                        endPTransform.SetActive(false);
-                                        alreadyLeft = false;
-                                        alreadyRight = false;
-                                    }
-                                    else if(alreadyRight)
-                                    {
-                                        savePart = ProbPart;
-                                        Instantiate(leftSouterrain, endPTransform.transform.position, Quaternion.identity);
-                                        GameObject go = Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
-                                        foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
-                                        {
-                                            darkPart.Add(darkParts);
-                                        }
-                                        i = objToGen;
-                                        endPTransform.SetActive(false);
-                                        alreadyLeft = false;
-                                        alreadyRight = false;
+                                        j++;
+                                        Debug.Log("part identique à la précédente");
                                     }
                                     else
                                     {
-                                        savePart = ProbPart;
-                                        Instantiate(leftSouterrain, endPTransform.transform.position, Quaternion.identity);
-                                        GameObject go = Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
-                                        foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                        if (alreadyLeft)
                                         {
-                                            darkPart.Add(darkParts);
+                                            savePart = ProbPart;
+                                            GameObject _go = Instantiate(rightSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                            _go.transform.GetChild(0).gameObject.SetActive(false);
+                                            endPTransform.SetActive(false);
+                                            GameObject go = Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
+                                            endPTransform.SetActive(false);
+                                            foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                            {
+                                                darkPart.Add(darkParts);
+                                            }
+                                            i = objToGen;
+                                            alreadyLeft = false;
+                                            alreadyRight = false;
                                         }
-                                        i = objToGen;
-                                        endPTransform.SetActive(false);
-                                        alreadyLeft = true;
-                                        alreadyRight = false;
+                                        else if (alreadyRight)
+                                        {
+                                            savePart = ProbPart;
+                                            GameObject _go = Instantiate(leftSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                            _go.transform.GetChild(0).gameObject.SetActive(false);
+                                            _go.name = "ntm";
+                                            endPTransform.SetActive(false);
+                                            GameObject go = Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
+                                            endPTransform.SetActive(false);
+                                            foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                            {
+                                                darkPart.Add(darkParts);
+                                            }
+                                            i = objToGen;
+                                            alreadyLeft = false;
+                                            alreadyRight = false;
+                                        }
+                                        else
+                                        {
+                                            savePart = ProbPart;
+                                            GameObject _go = Instantiate(leftSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                            _go.transform.GetChild(0).gameObject.SetActive(false);
+                                            _go.name = "ntm";
+                                            endPTransform.SetActive(false);
+                                            GameObject go = Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
+                                            endPTransform.SetActive(false);
+                                            foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                            {
+                                                darkPart.Add(darkParts);
+                                            }
+                                            i = objToGen;
+                                            alreadyLeft = true;
+                                            alreadyRight = false;
+                                        }
+
+
                                     }
 
-                                    
                                 }
-                                
-                            }
-                            else if (LeftSouterrainProb < ProbPart && ProbPart <= LeftSouterrainProb + RightSouterrainProb)
-                            {
-                                if(savePart < ProbPart && ProbPart <= LeftSouterrainProb + RightSouterrainProb && alreadyRight)
+                                else if (LeftSouterrainProb < ProbPart && ProbPart <= LeftSouterrainProb + RightSouterrainProb)
                                 {
-                                    j++;
-                                    Debug.Log("part identique à la précédente");
-                                }
-                                else
-                                {
-                                    if (alreadyRight)
+                                    if (savePart < ProbPart && ProbPart <= LeftSouterrainProb + RightSouterrainProb && alreadyRight)
                                     {
-                                        Instantiate(leftSouterrain, endPTransform.transform.position, Quaternion.identity);
-                                        GameObject go = Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
-                                        foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
-                                        {
-                                            darkPart.Add(darkParts);
-                                        }
-                                        i = objToGen;
-                                        endPTransform.SetActive(false);
-                                        alreadyLeft = false;
-                                        alreadyRight = false;
-                                    }
-                                    else if(alreadyLeft)
-                                    {
-                                        savePart = ProbPart;
-                                        Instantiate(rightSouterrain, endPTransform.transform.position, Quaternion.identity);
-                                        GameObject go = Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
-                                        foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
-                                        {
-                                            darkPart.Add(darkParts);
-                                        }
-                                        i = objToGen;
-                                        endPTransform.SetActive(false);
-                                        alreadyRight = false;
-                                        alreadyLeft = false;
+                                        j++;
+                                        Debug.Log("part identique à la précédente");
                                     }
                                     else
                                     {
-                                        Instantiate(rightSouterrain, endPTransform.transform.position, Quaternion.identity);
-                                        GameObject go = Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
-                                        foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                        if (alreadyRight)
                                         {
-                                            darkPart.Add(darkParts);
+                                            GameObject _go = Instantiate(leftSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                            _go.transform.GetChild(0).gameObject.SetActive(false);
+                                            _go.name = "ntm";
+                                            endPTransform.SetActive(false);
+                                            GameObject go = Instantiate(path[0], endPTransform.transform.position, Quaternion.identity);
+                                            endPTransform.SetActive(false);
+                                            foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                            {
+                                                darkPart.Add(darkParts);
+                                            }
+                                            i = objToGen;
+                                            alreadyLeft = false;
+                                            alreadyRight = false;
                                         }
-                                        i = objToGen;
-                                        endPTransform.SetActive(false);
-                                        alreadyRight = true;
-                                        alreadyLeft = false;
+                                        else if (alreadyLeft)
+                                        {
+                                            savePart = ProbPart;
+                                            GameObject _go = Instantiate(rightSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                            _go.transform.GetChild(0).gameObject.SetActive(false);
+                                            endPTransform.SetActive(false);
+                                            GameObject go = Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
+                                            endPTransform.SetActive(false);
+                                            foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                            {
+                                                darkPart.Add(darkParts);
+                                            }
+                                            i = objToGen;
+                                            alreadyRight = false;
+                                            alreadyLeft = false;
+                                        }
+                                        else
+                                        {
+                                            GameObject _go = Instantiate(rightSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                            _go.transform.GetChild(0).gameObject.SetActive(false);
+                                            endPTransform.SetActive(false);
+                                            GameObject go = Instantiate(path[2], endPTransform.transform.position, Quaternion.identity);
+                                            endPTransform.SetActive(false);
+                                            foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                            {
+                                                darkPart.Add(darkParts);
+                                            }
+                                            i = objToGen;
+                                            alreadyRight = true;
+                                            alreadyLeft = false;
+                                        }
+
                                     }
-                                    
-                                }                               
+                                }
+                                else
+                                {
+                                    //Debug.Log("fin?");
+                                    GameObject _go = Instantiate(centerSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                    _go.transform.GetChild(0).gameObject.SetActive(false);
+                                    endPTransform.SetActive(false);
+                                    GameObject go = Instantiate(path[1], endPTransform.transform.position, Quaternion.identity);
+                                    endPTransform.SetActive(false);
+                                    foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
+                                    {
+                                        darkPart.Add(darkParts);
+                                    }
+                                    i = objToGen;
+                                }
                             }
                             else
                             {
-                                Instantiate(centerSouterrain, endPTransform.transform.position, Quaternion.identity);
-                                GameObject go = Instantiate(path[1], endPTransform.transform.position, Quaternion.identity);
+                                GameObject _go = Instantiate(centerSouterrain, endPTransform.transform.position, Quaternion.identity);
+                                _go.transform.GetChild(0).gameObject.SetActive(false);
+                                endPTransform.SetActive(false);
+                                Debug.Log("fin?");
+                                GameObject go = Instantiate(trouInt, endPTransform.transform.position, Quaternion.identity);
+                                Debug.Log(go.name = "f");
+                                //go.transform.GetChild(0).gameObject.SetActive(false);
                                 foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
                                 {
                                     darkPart.Add(darkParts);
                                 }
-                                i = objToGen;
+
+                                //INSTANTIATE FIN DE SOUTERRAIN AVEC SORTIE
                                 endPTransform.SetActive(false);
+                                i = objToGen;
+                                loop = 0;
+                                
                             }
-                        }
-                        else
-                        {
-                            Instantiate(trouInt, endPTransform.transform.position, Quaternion.identity);
-                            //INSTANTIATE FIN DE SOUTERRAIN AVEC SORTIE
-                            endPTransform.SetActive(false);
-                            i = objToGen;
-                            //Generate();
-                        }
 
-                        foreach (GameObject endPlatTransform in GameObject.FindGameObjectsWithTag("endPlatform"))
-                        {
-                            endPlatform.Clear();
-                            endPlatform.Add(endPlatTransform);
-                            endPTransform = endPlatTransform;
-                        }
+                            foreach (GameObject endPlatTransform in GameObject.FindGameObjectsWithTag("endPlatform"))
+                            {
+                                endPlatform.Clear();
+                                endPlatform.Add(endPlatTransform);
+                                endPTransform = endPlatTransform;
+                            }
 
 
+                        }
                     }
+                    else
+                    {
+                        Generate();
+                    }
+
                 }
                 else if(PathNbr > LeftProb + RightProb + Souterrain)
                 {
                     //Debug.Log("the else");
-                    GameObject go = Instantiate(path[1], endPTransform.transform.position, Quaternion.identity);
+                    Instantiate(path[1], endPTransform.transform.position, Quaternion.identity);
+                    
                     //go.transform.SetParent(transform.parent);
                     endPTransform.SetActive(false);
                 }
@@ -261,7 +307,7 @@ public class TreeGenerator : MonoBehaviour
         }
         else
         {
-            //Debug.Log("no more tree to instantiate");
+            Debug.Log("no more tree to instantiate");
         }
     }
 
@@ -297,4 +343,5 @@ public class TreeGenerator : MonoBehaviour
             endPTransform = endPlatTransform;
         }
     }
+
 }
