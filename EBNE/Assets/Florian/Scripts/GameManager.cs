@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform thirdParent;
     [SerializeField] private ThirdManager thirdManager;
 
+    private float timeScaleBackup;
+
     private void Awake()
     {
         if (GameManager.instance == null)
@@ -62,5 +64,22 @@ public class GameManager : MonoBehaviour
         phase = Phase.Third;
         thirdParent.gameObject.SetActive(true);
         //thirdManager.launch();
+    }
+
+    public void Restart()
+    {
+        // Restart
+    }
+
+    public void TriggerPause()
+    {
+        if (Time.timeScale > 0)
+        {
+            timeScaleBackup = Time.timeScale;
+            Time.timeScale = 0;
+        } else
+        {
+            Time.timeScale = timeScaleBackup;
+        }
     }
 }
