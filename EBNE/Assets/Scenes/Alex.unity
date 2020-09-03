@@ -969,8 +969,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceaa31472296e4d00b8adf51693a7916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMultiplicator: 1.00013
+  timeMultiplicator: 1.00012
   activeTimeScaleValue: 0
+  scoreManager: {fileID: 0}
+  phase: 0
+  thirdParent: {fileID: 0}
+  thirdManager: {fileID: 0}
 --- !u!1 &1360203796
 GameObject:
   m_ObjectHideFlags: 0
