@@ -32,8 +32,13 @@ public class PlayerController : MonoBehaviour
     public bool leftRoad = false;
     public bool rightRoad = false;
 
+    private TreeGenerator _treeGenerator;
+
+    public GameObject darkCanvas;
+
     void Start()
     {
+        _treeGenerator = FindObjectOfType<TreeGenerator>();
         leftRoad = false; rightRoad = false;
         _scoreManager = FindObjectOfType<ScoreManager>();
         _closeEnemy = FindObjectOfType<CloseEnemy>();
@@ -311,6 +316,18 @@ public class PlayerController : MonoBehaviour
             Debug.Log("death by fall");
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
+        }
+
+        if (collision.gameObject.CompareTag("Souterrain"))
+        {
+            _treeGenerator.GoInDark();
+            darkCanvas.SetActive(true);
+        }
+
+        if (collision.gameObject.CompareTag("Ext"))
+        {
+            _treeGenerator.GoInExt();
+            darkCanvas.SetActive(false);
         }
 
         if (collision.gameObject.CompareTag("Close"))

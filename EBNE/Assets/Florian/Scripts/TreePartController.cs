@@ -113,7 +113,6 @@ public class TreePartController : MonoBehaviour
 
     void CallGeneration()
     {
-//        Debug.Log("generate");
         FindObjectOfType<TreeGenerator>().Generate();
     }
 }
