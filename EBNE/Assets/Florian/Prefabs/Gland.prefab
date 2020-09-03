@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8735058899761422925}
   - component: {fileID: 8735058899761422930}
   - component: {fileID: 480501892134654083}
+  - component: {fileID: 3781175944926593413}
   m_Layer: 0
   m_Name: Gland
   m_TagString: Gland
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2304529789558642268, guid: e7ed33ae7d6664cf1b2af21300f8cd26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,3 +120,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3781175944926593413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735058899761422931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2216545d22d414b91412cbb9bacc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takenParticle: {fileID: 7276717148982598757, guid: d7bba401357d32144974d8a9671a5618, type: 3}
