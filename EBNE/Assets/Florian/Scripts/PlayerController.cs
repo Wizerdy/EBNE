@@ -338,6 +338,13 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<CameraShake>().Shake();
         }
 
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            closeAnim.SetTrigger("death");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            FindObjectOfType<CameraShake>().Shake();
+        }
+
         if (collision.gameObject.CompareTag("Gland"))
         {
             //Debug.Log("gland++");
@@ -377,5 +384,11 @@ public class PlayerController : MonoBehaviour
                 rightRoad = true;
             }
         }
+    }
+
+    public void Death()
+    {
+        closeAnim.SetTrigger("death");
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 }

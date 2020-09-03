@@ -15,7 +15,7 @@ public class TreeController : MonoBehaviour
     void Start()
     {
         StartCoroutine(CheckSpeedValues());
-        StartCoroutine(DesactivateTheTree());
+        //StartCoroutine(DesactivateTheTree());
     }
 
     void Update()

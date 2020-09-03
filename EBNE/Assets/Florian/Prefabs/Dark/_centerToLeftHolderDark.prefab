@@ -312,8 +312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wichPart: 1
   centerTree: {fileID: 6769820778571546953, guid: e70ef257b3b174bd1b40f64a925a77b0, type: 3}
-  leftTree: {fileID: 6083221902675573758}
-  rightTree: {fileID: 6083221902675573758}
+  leftTree: {fileID: 7061717481445146867, guid: 5bf37f492d09940349784cc3c06c4079, type: 3}
+  rightTree: {fileID: 9096230486363001030, guid: 5f02e1fdd723d45fb998c4c39331bfe1, type: 3}
   endPlatform:
   - {fileID: 0}
   treeGenerator: {fileID: 0}

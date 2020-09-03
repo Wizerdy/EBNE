@@ -8,7 +8,7 @@ public class ObstacleController : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 5);
+        //Destroy(gameObject, 5);
     }
 
     void Update()

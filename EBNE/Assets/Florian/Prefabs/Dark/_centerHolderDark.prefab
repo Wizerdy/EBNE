@@ -622,7 +622,7 @@ MonoBehaviour:
   - {fileID: 453038466366758053}
   - {fileID: 2212028126015082039}
   - {fileID: 4927011606987986760}
-  isDarkPart: 0
+  isDarkPart: 1
   branche: {fileID: 2038000686022428210, guid: 6c343db1015674029bf540b85f2a6e2e, type: 3}
 --- !u!1 &6945677793670224346
 GameObject:

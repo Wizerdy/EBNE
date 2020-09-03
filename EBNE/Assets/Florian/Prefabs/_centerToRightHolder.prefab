@@ -441,7 +441,7 @@ MonoBehaviour:
   wichPart: 0
   centerTree: {fileID: 8484616551658345173, guid: eb2dae98c065c4fcb9c12ec2d64b74cf, type: 3}
   leftTree: {fileID: 9114981937171554464, guid: 811a873c87b7b4749bdd4bd3ebb23039, type: 3}
-  rightTree: {fileID: 8357819355436437001, guid: 62916c8de6a5740fba740ffa32276149, type: 3}
+  rightTree: {fileID: 7881262537142434642, guid: 238af09f25a3b43c2937b3e027dc566e, type: 3}
   endPlatform:
   - {fileID: 0}
   treeGenerator: {fileID: 0}

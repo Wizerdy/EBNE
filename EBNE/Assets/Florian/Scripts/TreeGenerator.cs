@@ -259,6 +259,7 @@ public class TreeGenerator : MonoBehaviour
                                 Debug.Log("fin?");
                                 GameObject go = Instantiate(trouInt, endPTransform.transform.position, Quaternion.identity);
                                 Debug.Log(go.name = "f");
+                                go.transform.GetChild(1).tag = "Ext";
                                 //go.transform.GetChild(0).gameObject.SetActive(false);
                                 foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())
                                 {

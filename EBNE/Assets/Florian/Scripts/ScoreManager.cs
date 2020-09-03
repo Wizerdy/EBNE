@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class ScoreManager : MonoBehaviour
     [Tooltip("La valeur à incrémenter au score chaque frame autrement dit la vitesse à laquelle monte le score")]
     public float increScoreTime;
 
+    private bool closer;
+    private float saveScore;
+
     void Start()
     {
         score = 0;
         money = 0;
+        saveScore = 1000;
     }
 
     public void GotGland()
@@ -30,5 +35,19 @@ public class ScoreManager : MonoBehaviour
     {
         score += increScoreTime;
         scoreText.text = "" + (int)score;
+
+        if(score >= saveScore && !closer)
+        {
+            saveScore += 1000;
+            closer = true;
+            FindObjectOfType<TreeGenerator>().Generate();
+            StartCoroutine(Reset());
+        }
+    }
+
+    IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(3);
+        closer = false;
     }
 }

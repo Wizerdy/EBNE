@@ -40,7 +40,7 @@ public class ObstaclesSpawner : MonoBehaviour
         }
         else
         {
-            Ponder();
+            //Ponder();
         }
     }
 

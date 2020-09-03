@@ -25,11 +25,13 @@ public class GlandController : MonoBehaviour
         if(rr < probToSpawn)
         {
             var _rr = Random.Range(0, spawnPoints.Length);
+
             while(spawnPoints[_rr].transform.childCount != 0)
             {
                 _rr = Random.Range(0, spawnPoints.Length);
                 Debug.Log("spawn point plein");
             }
+            
             Instantiate(gland, spawnPoints[_rr].transform);
         }
     }

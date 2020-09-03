@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform thirdParent;
     [SerializeField] private ThirdManager thirdManager;
 
+    [Tooltip("Multiplication du temps max (4 c'est vraiment l'idéal après avoir test un bon nombre de fois).")]
+    public float gameMultiplicatorMax;
+
     private float timeScaleBackup;
 
     private void Awake()
@@ -52,7 +55,11 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        Time.timeScale *= timeMultiplicator;
+        if(Time.timeScale <= gameMultiplicatorMax)
+        {
+            Time.timeScale *= timeMultiplicator;
+        }
+        
         if (activeTimeScaleValue)
         {
             Debug.Log(Time.timeScale);
