@@ -16,8 +16,12 @@ public class ObstaclesSpawner : MonoBehaviour
 
     List<int> list = new List<int>();
 
+    Sprite[] obstaclesSprites;
+
     void Start()
     {
+        obstaclesSprites = Resources.LoadAll<Sprite>("Assets/Obstacles/Outside");
+
         Spawn();
 
         /*if(timeBtwObstacles == 0)
@@ -32,69 +36,121 @@ public class ObstaclesSpawner : MonoBehaviour
     {
         if (!isDarkPart)
         {
-            list = new List<int>(new int[3]);
-            var rr = Random.Range(0, 2);
-            if (rr == 0)
-            {
-                Instantiate(branche, spawnPoints[Random.Range(0, spawnPoints.Length)]);
-            }
-            else
-            {
-                for (int j = 1; j < 3; j++)
-                {
-                    var Rand = Random.Range(0, 4);
-
-                    while (list.Contains(Rand))
-                    {
-                        Rand = Random.Range(0, 4);
-                    }
-
-                    list[j] = Rand;
-                    if (spawnPoints[j - 1].transform.childCount != 0)
-                    {
-                        Debug.Log("spawn point plein");
-                    }
-                    else
-                    {
-                        Instantiate(branche, spawnPoints[j - 1]);
-                    }
-
-                }
-
-            }
+            Ponder();
         }
         else
         {
-            list = new List<int>(new int[3]);
-            var rr = Random.Range(0, 2);
-            if (rr == 0)
+            Ponder();
+        }
+    }
+
+    //void Spawn()
+    //{
+    //    if (!isDarkPart)
+    //    {
+    //        list = new List<int>(new int[3]);
+    //        var rr = Random.Range(0, 2);
+    //        if (rr == 0)
+    //        {
+    //            Instantiate(branche, spawnPoints[Random.Range(0, spawnPoints.Length)]);
+    //        }
+    //        else
+    //        {
+    //            for (int j = 1; j < 3; j++)
+    //            {
+    //                var Rand = Random.Range(0, 4);
+
+    //                while (list.Contains(Rand))
+    //                {
+    //                    Rand = Random.Range(0, 4);
+    //                }
+
+    //                list[j] = Rand;
+    //                if (spawnPoints[j - 1].transform.childCount != 0)
+    //                {
+    //                    Debug.Log("spawn point plein");
+    //                }
+    //                else
+    //                {
+    //                    Instantiate(branche, spawnPoints[j - 1]);
+    //                }
+
+    //            }
+
+    //        }
+    //    }
+    //    else
+    //    {
+    //        list = new List<int>(new int[3]);
+    //        var rr = Random.Range(0, 2);
+    //        if (rr == 0)
+    //        {
+    //            Instantiate(branche, spawnPoints[Random.Range(0, spawnPoints.Length)]);
+    //        }
+    //        else
+    //        {
+    //            for (int j = 1; j < 3; j++)
+    //            {
+    //                var Rand = Random.Range(0, 4);
+
+    //                while (list.Contains(Rand))
+    //                {
+    //                    Rand = Random.Range(0, 4);
+    //                }
+
+    //                list[j] = Rand;
+    //                if (spawnPoints[j - 1].transform.childCount != 0)
+    //                {
+    //                    Debug.Log("spawn point plein");
+    //                }
+    //                else
+    //                {
+    //                    Instantiate(branche, spawnPoints[j - 1]);
+    //                }
+
+    //            }
+
+    //        }
+    //    }
+    //}
+
+    private void InstantiareBranche(Transform parent)
+    {
+        GameObject insta = Instantiate(branche, parent);
+        insta.GetComponent<SpriteRenderer>().sprite = obstaclesSprites[Random.Range(0, obstaclesSprites.Length)];
+    }
+
+    private void Ponder()
+    {
+        list = new List<int>(new int[3]);
+        var rr = Random.Range(0, 2);
+        if (rr == 0)
+        {
+            InstantiareBranche(spawnPoints[Random.Range(0, spawnPoints.Length)]);
+        }
+        else
+        {
+            for (int j = 1; j < 3; j++)
             {
-                Instantiate(branche, spawnPoints[Random.Range(0, spawnPoints.Length)]);
-            }
-            else
-            {
-                for (int j = 1; j < 3; j++)
+                var Rand = Random.Range(0, 4);
+
+                while (list.Contains(Rand))
                 {
-                    var Rand = Random.Range(0, 4);
+                    Rand = Random.Range(0, 4);
+                }
 
-                    while (list.Contains(Rand))
-                    {
-                        Rand = Random.Range(0, 4);
-                    }
-
-                    list[j] = Rand;
-                    if (spawnPoints[j - 1].transform.childCount != 0)
-                    {
-                        Debug.Log("spawn point plein");
-                    }
-                    else
-                    {
-                        Instantiate(branche, spawnPoints[j - 1]);
-                    }
-
+                list[j] = Rand;
+                if (spawnPoints[j - 1].transform.childCount != 0)
+                {
+                    Debug.Log("spawn point plein");
+                }
+                else
+                {
+                    InstantiareBranche(spawnPoints[j - 1]);
                 }
 
             }
+
         }
     }
 

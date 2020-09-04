@@ -342,7 +342,8 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("gland++");
             _scoreManager.GotGland();
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
+            collision.GetComponent<NutController>().Taken();
         }
 
         if (collision.gameObject.CompareTag("LeftPart"))
