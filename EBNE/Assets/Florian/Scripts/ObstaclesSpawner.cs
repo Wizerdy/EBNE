@@ -142,7 +142,7 @@ public class ObstaclesSpawner : MonoBehaviour
                 list[j] = Rand;
                 if (spawnPoints[j - 1].transform.childCount != 0)
                 {
-                    Debug.Log("spawn point plein");
+                    //Debug.Log("spawn point plein");
                 }
                 else
                 {
