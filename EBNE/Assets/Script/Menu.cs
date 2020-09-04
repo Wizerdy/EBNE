@@ -19,13 +19,9 @@ public class Menu : MonoBehaviour
 
     public void BouttonJouer()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Pierre");
     }
 
-    public void BouttonBoutique()
-    {
-        SceneManager.LoadScene("Boutique");
-    }
 
     public void BouttonQuitter  ()
     {
