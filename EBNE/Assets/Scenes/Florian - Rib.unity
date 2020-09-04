@@ -807,6 +807,8 @@ MonoBehaviour:
   - {fileID: 1117396092}
   isDarkPart: 0
   branche: {fileID: 2038000686022428210, guid: 6c343db1015674029bf540b85f2a6e2e, type: 3}
+  deco: []
+  spDeco: []
 --- !u!1 &479456166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,12 +1800,12 @@ MonoBehaviour:
   - name: Theme
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 3259370b16727ff48ae1f2e7906d8881, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
   - name: Plop
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 38fc6d3baae07f042be8b01750ef4eb5, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
   - name: Bloop
     source: {fileID: 0}
@@ -1813,6 +1815,11 @@ MonoBehaviour:
   - name: Squick
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: 9985f1a3be019a649aa0e4634e031424, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Impact
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 31db3d2be98e8f74c945ae0a65932d24, type: 3}
     volume: 1
     pitch: 1
 --- !u!1 &1354869136
@@ -3518,6 +3525,8 @@ MonoBehaviour:
   - {fileID: 8785203516864883920}
   isDarkPart: 0
   branche: {fileID: 1654090894}
+  deco: []
+  spDeco: []
 --- !u!4 &1009010928624761099
 Transform:
   m_ObjectHideFlags: 0

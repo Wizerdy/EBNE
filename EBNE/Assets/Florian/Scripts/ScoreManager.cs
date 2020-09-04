@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     {
         score = 0;
         money = 0;
-        saveScore = 1000;
+        saveScore = 500;
     }
 
     public void GotGland()
@@ -38,7 +38,7 @@ public class ScoreManager : MonoBehaviour
 
         if(score >= saveScore && !closer)
         {
-            saveScore += 1000;
+            saveScore += 500;
             closer = true;
             FindObjectOfType<TreeGenerator>().Generate();
             StartCoroutine(Reset());

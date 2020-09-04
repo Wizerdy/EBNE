@@ -17,9 +17,9 @@ public class Menu : MonoBehaviour
         
     }
 
-    public void BouttonJouer()
+    public void BouttonJouer(string name)
     {
-        SceneManager.LoadScene("Pierre");
+        SceneManager.LoadScene(name);
     }
 
 

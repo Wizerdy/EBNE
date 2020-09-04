@@ -18,6 +18,9 @@ public class ObstaclesSpawner : MonoBehaviour
 
     Sprite[] obstaclesSprites;
 
+    public GameObject[] deco;
+    public Transform[] spDeco;
+
     void Start()
     {
         obstaclesSprites = Resources.LoadAll<Sprite>("Assets/Obstacles/Outside");
@@ -37,10 +40,21 @@ public class ObstaclesSpawner : MonoBehaviour
         if (!isDarkPart)
         {
             Ponder();
+            //Deco();
         }
         else
         {
             //Ponder();
+        }
+    }
+
+    void Deco()
+    {
+        var rr = Random.Range(0, 2);
+
+        if (rr == 0)
+        {
+            Instantiate(deco[Random.Range(0, deco.Length - 1)], spDeco[0].transform);
         }
     }
 

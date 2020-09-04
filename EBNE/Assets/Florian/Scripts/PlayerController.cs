@@ -340,6 +340,7 @@ public class PlayerController : MonoBehaviour
 //          closeAnim.SetTrigger("close");
             _closeEnemy.boolMT();
             FindObjectOfType<CameraShake>().Shake();
+            SoundManager.instance.Play("Squick");
         }
 
         if (collision.gameObject.CompareTag("Obstacle"))
@@ -347,6 +348,8 @@ public class PlayerController : MonoBehaviour
             closeAnim.SetTrigger("death");
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             FindObjectOfType<CameraShake>().Shake();
+            SoundManager.instance.Play("Squick");
+            SoundManager.instance.Play("Impact");
         }
 
         if (collision.gameObject.CompareTag("Gland"))
@@ -355,6 +358,7 @@ public class PlayerController : MonoBehaviour
             _scoreManager.GotGland();
             //collision.gameObject.SetActive(false);
             collision.GetComponent<NutController>().Taken();
+            SoundManager.instance.Play("Plop");
         }
 
         if (collision.gameObject.CompareTag("LeftPart"))
