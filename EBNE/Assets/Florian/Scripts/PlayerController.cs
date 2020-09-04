@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -319,6 +320,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(closeAnim);
             Debug.Log("death by fall");
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            SceneManager.LoadScene(1);
 
         }
 

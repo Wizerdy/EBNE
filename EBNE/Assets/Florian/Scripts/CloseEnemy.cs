@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CloseEnemy : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class CloseEnemy : MonoBehaviour
         {
             Debug.Log("death");
             FindObjectOfType<PlayerController>().Death();
+            SceneManager.LoadScene(1);
         }
 
         canMT = true;
