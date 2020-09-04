@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        score += increScoreTime;
+        score += increScoreTime * (Time.deltaTime != 0 ? 1 : 0);
         scoreText.text = "" + (int)score;
 
         if(score >= saveScore && !closer)

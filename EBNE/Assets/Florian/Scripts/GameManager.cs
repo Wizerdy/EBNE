@@ -29,15 +29,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (GameManager.instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        //if (GameManager.instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(this.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(this.gameObject);
+        //}
+        instance = this;
     }
 
     void Start()
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(1);
     }
 
