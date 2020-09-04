@@ -1810,6 +1810,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 21597d1a4b4fb2d44a4709b6831764a6, type: 3}
     volume: 1
     pitch: 1
+  - name: Squick
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9985f1a3be019a649aa0e4634e031424, type: 3}
+    volume: 1
+    pitch: 1
 --- !u!1 &1354869136
 GameObject:
   m_ObjectHideFlags: 0
