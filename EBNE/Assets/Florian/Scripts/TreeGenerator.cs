@@ -72,7 +72,7 @@ public class TreeGenerator : MonoBehaviour
             for (int i = 0; i <= objToGen; i++)
             {
                 loop++;
-                Debug.Log(loop);
+                //Debug.Log(loop);
 
                 int PathNbr = Random.Range(0, 100);
 
@@ -96,11 +96,11 @@ public class TreeGenerator : MonoBehaviour
                 }
                 else if (RightProb + LeftProb < PathNbr && PathNbr <= LeftProb + RightProb + Souterrain /*&& !canSouterrain*/)//SOUTERRAIN
                 {
-                    Debug.Log("vdfv");
+                    //Debug.Log("vdfv");
                     if (0==0)
                     {
                         //canSouterrain = true;
-                        Debug.Log("generation souterrain");
+                        //Debug.Log("generation souterrain");
                         TrouDark();
 
                         endPTransform = GameObject.FindWithTag("endPlatform");
@@ -118,7 +118,7 @@ public class TreeGenerator : MonoBehaviour
                                     if (savePart <= ProbPart)
                                     {
                                         j++;
-                                        Debug.Log("part identique à la précédente");
+                                        //Debug.Log("part identique à la précédente");
                                     }
                                     else
                                     {
@@ -256,9 +256,9 @@ public class TreeGenerator : MonoBehaviour
                                 GameObject _go = Instantiate(centerSouterrain, endPTransform.transform.position, Quaternion.identity);
                                 _go.transform.GetChild(0).gameObject.SetActive(false);
                                 endPTransform.SetActive(false);
-                                Debug.Log("fin?");
+                                //Debug.Log("fin?");
                                 GameObject go = Instantiate(trouInt, endPTransform.transform.position, Quaternion.identity);
-                                Debug.Log(go.name = "f");
+                                //Debug.Log(go.name = "f");
                                 go.transform.GetChild(1).tag = "Ext";
                                 //go.transform.GetChild(0).gameObject.SetActive(false);
                                 foreach (SpriteRenderer darkParts in go.transform.GetComponentsInChildren<SpriteRenderer>())

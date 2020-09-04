@@ -28,6 +28,7 @@ public class CloseEnemy : MonoBehaviour
     {
         if(timeBfrReset != saveTBR)
         {
+            Debug.Log("death");
             FindObjectOfType<PlayerController>().Death();
         }
 

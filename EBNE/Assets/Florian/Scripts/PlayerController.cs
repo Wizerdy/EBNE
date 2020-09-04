@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
    
     public int side;
-    private bool key;
+    public bool key;
     [Tooltip("La rapidité du joueur entre les changements de voie")]
     public float sideMoveSpeed;
 
@@ -52,15 +52,16 @@ public class PlayerController : MonoBehaviour
         if(leftRoad == true)
         {
             SwipeLeft();
-            //Debug.Log("left");
+            Debug.Log("left");
         }
         else if(rightRoad == true)
         {
             SwipeRight();
-            //Debug.Log("right");
+            Debug.Log("right");
         }
         else if(!leftRoad && !rightRoad)
         {
+            Debug.Log("else if");
             Swipe();
         }
 
@@ -103,20 +104,21 @@ public class PlayerController : MonoBehaviour
         {
             if(side != 0)
             {
+                key = true;
                 side -= 1;
                 canChangeSide = true;
-                key = true;
             }
            
         }
 
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
+            Debug.Log("D");
             if (side != 2)
             {
+                key = true;
                 side += 1;
                 canChangeSide = true;
-                key = true;
             }
         }
     }
@@ -157,9 +159,9 @@ public class PlayerController : MonoBehaviour
         {
             if (side != -1)
             {
+                key = true;
                 side -= 1;
                 canChangeSide = true;
-                key = true;
             }
         }
 
@@ -167,10 +169,9 @@ public class PlayerController : MonoBehaviour
         {
             if (side != 1)
             {
+                key = true;
                 side += 1;
                 canChangeSide = true;
-                key = true;
-
             }
 
         }
@@ -213,9 +214,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (side != 1)
                 {
+                    key = true;
                     side -= 1;
                     canChangeSide = true;
-                    key = true;
                 }
 
             }
@@ -224,9 +225,10 @@ public class PlayerController : MonoBehaviour
             {
                 if (side != 3)
                 {
-                    side += 1;
+                key = true;
+                side += 1;
                     canChangeSide = true;
-                    key = true;
+
                 }
             }
         }
@@ -278,8 +280,10 @@ public class PlayerController : MonoBehaviour
 
             if (side == 2)
             {
+                Debug.Log("2==");
                 if (endPos.x - startPos.x > 0 || key)
                 {
+                    Debug.Log("IF2==");
                     transform.position = Vector3.MoveTowards(transform.position, movingRight, sideMoveSpeed * Time.deltaTime);
                 }
 
