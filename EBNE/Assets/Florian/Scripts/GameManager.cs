@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,9 +74,14 @@ public class GameManager : MonoBehaviour
         //thirdManager.launch();
     }
 
+    public void GameOver()
+    {
+        StartCoroutine(GameOverDelay(1f));
+    }
+
     public void Restart()
     {
-        // Restart
+        SceneManager.LoadScene(1);
     }
 
     public void TriggerPause()
@@ -88,5 +94,11 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = timeScaleBackup;
         }
+    }
+
+    IEnumerator GameOverDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(2);
     }
 }

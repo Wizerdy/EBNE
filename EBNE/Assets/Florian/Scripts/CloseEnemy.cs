@@ -31,7 +31,7 @@ public class CloseEnemy : MonoBehaviour
         {
             Debug.Log("death");
             FindObjectOfType<PlayerController>().Death();
-            SceneManager.LoadScene(1);
+            GameManager.instance.GameOver();
         }
 
         canMT = true;

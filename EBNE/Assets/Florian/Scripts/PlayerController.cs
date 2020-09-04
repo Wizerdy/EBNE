@@ -320,8 +320,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(closeAnim);
             Debug.Log("death by fall");
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            SceneManager.LoadScene(1);
-
+            GameManager.instance.GameOver();
         }
 
         if (collision.gameObject.CompareTag("Souterrain"))

@@ -19,7 +19,8 @@ public class ObstaclesSpawner : MonoBehaviour
     Sprite[] obstaclesSprites;
 
     public GameObject[] deco;
-    public Transform[] spDeco;
+    public Transform[] spDecoLeft;
+    public Transform[] spDecoRight;
 
     void Start()
     {
@@ -40,7 +41,8 @@ public class ObstaclesSpawner : MonoBehaviour
         if (!isDarkPart)
         {
             Ponder();
-            //Deco();
+            Deco1();
+            Deco2();
         }
         else
         {
@@ -48,13 +50,30 @@ public class ObstaclesSpawner : MonoBehaviour
         }
     }
 
-    void Deco()
+    void Deco1()
     {
         var rr = Random.Range(0, 2);
 
         if (rr == 0)
         {
-            Instantiate(deco[Random.Range(0, deco.Length - 1)], spDeco[0].transform);
+            int random = Random.Range(0, deco.Length);
+            int rand2 = Random.Range(0, spDecoLeft.Length);
+            //Debug.LogError(random + " .. " + deco.Length + " // " + rand2 + " .. " + spDecoLeft.Length);
+            Instantiate(deco[random], spDecoLeft[rand2].transform);
+        }
+    }
+
+    void Deco2()
+    {
+        var rr = Random.Range(0, 2);
+
+        if (rr == 0)
+        {
+            int random = Random.Range(0, deco.Length);
+            int rand2 = Random.Range(0, spDecoLeft.Length);
+            //Debug.LogError(random + " .. " + deco.Length + " // " + rand2 + " .. " + spDecoLeft.Length);
+            GameObject insta = Instantiate(deco[random], spDecoRight[rand2].transform);
+            insta.transform.localEulerAngles = new Vector3(180, 0 , 180);
         }
     }
 

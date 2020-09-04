@@ -808,7 +808,8 @@ MonoBehaviour:
   isDarkPart: 0
   branche: {fileID: 2038000686022428210, guid: 6c343db1015674029bf540b85f2a6e2e, type: 3}
   deco: []
-  spDeco: []
+  spDecoLeft: []
+  spDecoRight: []
 --- !u!1 &479456166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3526,7 +3527,8 @@ MonoBehaviour:
   isDarkPart: 0
   branche: {fileID: 1654090894}
   deco: []
-  spDeco: []
+  spDecoLeft: []
+  spDecoRight: []
 --- !u!4 &1009010928624761099
 Transform:
   m_ObjectHideFlags: 0
