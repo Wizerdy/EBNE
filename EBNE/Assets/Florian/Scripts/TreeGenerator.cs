@@ -65,13 +65,15 @@ public class TreeGenerator : MonoBehaviour
 
     public void Generate()
     {
-        if(objToGen >= loop)
+        Debug.LogWarning("Oui.");
+        if(objToGen >= 0)
         {
+            Debug.LogWarning("Non.");
             endPTransform = GameObject.FindWithTag("endPlatform");
 
             for (int i = 0; i <= objToGen; i++)
             {
-                loop++;
+                //loop++;
                 //Debug.Log(loop);
 
                 int PathNbr = Random.Range(0, 100);
