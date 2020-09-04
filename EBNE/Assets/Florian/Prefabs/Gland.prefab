@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   takenParticle: {fileID: 7276717148982598757, guid: d7bba401357d32144974d8a9671a5618, type: 3}
+  bonusText: {fileID: 721835004684442514, guid: ef6a63e4034c7814a82b91f4cf970a9a, type: 3}
